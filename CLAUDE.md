@@ -89,7 +89,13 @@ Alfred and Oracle communicate through four channels:
 
 Alfred should dispatch scripts and commands to Oracle directly whenever possible. Most tasks only need execution, not local intelligence.
 
-**Robin** is specifically the local AI layer — invoked only when a task requires local reasoning, judgment, or human-equivalent interaction that Alfred cannot orchestrate remotely. Robin acts with Batman's full authority and privileges. In its activities, Robin should be indistinguishable from Bruce himself — it is Batman's authorized proxy, not a subordinate. Robin is invoked when needed, not by default.
+**Robin** is two things at once:
+
+1. **The Batcave's immune system.** Robin starts on every boot, runs a 5-phase health cascade, and recovers services autonomously -- with no internet, no cloud, no Batman needed. If Oracle reboots at 3 AM with no connectivity and Batman is away, Robin has the system back up in under 5 minutes. (See ADR-002.)
+
+2. **Batman's authorized proxy.** When Alfred needs "Bruce input" to proceed -- a confirmation, a password, a judgment call -- Robin provides it. Alfred should never be permanently blocked by "needs human input." Robin carries Batman's authority and exercises Batman's judgment.
+
+Robin simulates human activity when interfaces demand it (web UIs, 2FA, passwords) but is **not constrained to the human role.** In the sole digital survivor scenario -- Batman incapacitated, Alfred offline, internet down -- Robin is the only intelligence left. Robin monitors all services simultaneously, reasons via local LLM, maintains perfect failure memory, and acts at machine speed. Robin is more than human.
 
 Examples of when Robin (not just Oracle) is needed:
 - Navigating a 2FA flow that requires reading a screen and making decisions
